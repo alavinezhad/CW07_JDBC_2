@@ -31,14 +31,13 @@ public class EmployeeRepository {
             return -1;
     }
     public int save(EmployeeAddress address) throws SQLException {
-        String addAddress = "INSERT INTO employee_address (address_id, city, street, postal_code) \n" +
-                "VALUES (?, ?, ?, ?);";
+        String addAddress = "INSERT INTO employee_address (city, street, postal_code) \n" +
+                "VALUES (?, ?, ?);";
         PreparedStatement preparedStatement = connection.prepareStatement(addAddress,
                 Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setInt(1, address.getAddressId());
-        preparedStatement.setString(2, address.getCity());
-        preparedStatement.setString(3, address.getStreet());
-        preparedStatement.setInt(4, address.getPostalCode());
+        preparedStatement.setString(1, address.getCity());
+        preparedStatement.setString(2, address.getStreet());
+        preparedStatement.setInt(3, address.getPostalCode());
 
         preparedStatement.executeUpdate();
         ResultSet resultSet = preparedStatement.getGeneratedKeys();
