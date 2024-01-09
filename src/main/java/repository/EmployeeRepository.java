@@ -65,6 +65,9 @@ public class EmployeeRepository {
         return null;
     }
 
+    public Employee findEmployeeById(int employeeId) {
+        String findEmployee = "";
+    }
     public int updateAddress(EmployeeAddress employeeAddress, int employeeNumber) throws SQLException {
         String changeAddress = "UPDATE employee_address A\n" +
                 "SET city = ?, street = ?, postal_code = ?\n" +
