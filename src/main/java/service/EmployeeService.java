@@ -41,4 +41,8 @@ public class EmployeeService {
     public EmployeeAddress findAddress(int employeeNumber) throws SQLException {
         return employeeRepository.loadAddress(employeeNumber);
     }
+    public void editEmployee(int employeeNumber) {
+        System.out.println("***** edit employee office code and address *****");
+
+    }
 }
