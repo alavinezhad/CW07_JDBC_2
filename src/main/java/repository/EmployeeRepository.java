@@ -96,5 +96,12 @@ public class EmployeeRepository {
         int result = ps.executeUpdate();
         return result;
     }
+    public int updateOfficeCode(int newOfficeCode) throws SQLException {
+        String changeOfficeCode = "UPDATE employee SET office_code = ?;";
+        PreparedStatement ps = connection.prepareStatement(changeOfficeCode);
+        ps.setInt(1, newOfficeCode);
+        int result = ps.executeUpdate();
+        return result;
+    }
 
 }
