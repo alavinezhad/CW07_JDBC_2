@@ -61,4 +61,15 @@ public class Employee {
     public void setAddressId(int addressId) {
         this.addressId = addressId;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeNumber=" + employeeNumber +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", officeCode=" + officeCode +
+                ", addressId=" + addressId +
+                '}';
+    }
 }
