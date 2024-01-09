@@ -22,6 +22,13 @@ public class Employee {
         this.addressId = addressId;
     }
 
+    public Employee(String lastName, String firstName, int officeCode, int addressId) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.officeCode = officeCode;
+        this.addressId = addressId;
+    }
+
     public int getEmployeeNumber() {
         return employeeNumber;
     }
