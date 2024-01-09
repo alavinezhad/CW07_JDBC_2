@@ -38,4 +38,7 @@ public class EmployeeService {
         int employeeNumber = employeeRepository.save(new Employee(lastName, firstName, officeCode, addressId));
         return employeeNumber;
     }
+    public EmployeeAddress findAddress(int employeeNumber) throws SQLException {
+        return employeeRepository.loadAddress(employeeNumber);
+    }
 }
