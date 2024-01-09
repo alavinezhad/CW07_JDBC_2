@@ -53,4 +53,14 @@ public class EmployeeAddress {
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeeAddress{" +
+                "addressId=" + addressId +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", postalCode=" + postalCode +
+                '}';
+    }
 }
