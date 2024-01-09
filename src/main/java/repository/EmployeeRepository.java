@@ -13,7 +13,7 @@ public class EmployeeRepository {
     }
 
     public int save(Employee employee) throws SQLException {
-        String addEmployee = "INSERT INTO employees (last_name, first_name, office_code, address_id) \n" +
+        String addEmployee = "INSERT INTO employee (last_name, first_name, office_code, address_id) \n" +
                 "VALUES (?, ?, ?, ?);";
         PreparedStatement preparedStatement = connection.prepareStatement(addEmployee,
                 Statement.RETURN_GENERATED_KEYS);
@@ -49,7 +49,7 @@ public class EmployeeRepository {
     public EmployeeAddress loadAddress(int employeeNumber) throws SQLException {
         String findAddress = "SELECT A.* \n" +
                 "FROM employee_address A\n" +
-                "JOIN employees E USING (address_id)\n" +
+                "JOIN employee E USING (address_id)\n" +
                 "WHERE E.employee_number = ?;";
         PreparedStatement preparedStatement = connection.prepareStatement(findAddress);
         preparedStatement.setInt(1, employeeNumber);
@@ -65,8 +65,21 @@ public class EmployeeRepository {
         return null;
     }
 
-    public Employee findEmployeeById(int employeeId) {
-        String findEmployee = "";
+    public Employee findEmployeeById(int employeeId) throws SQLException {
+        String findEmployee = "SELECT * FROM employee WHERE employee_number = ?;";
+        PreparedStatement ps = connection.prepareStatement(findEmployee);
+        ps.setInt(1, employeeId);
+
+        ResultSet resultSet = ps.executeQuery();
+        if (resultSet.next()) {
+            int employeeNumber = resultSet.getInt("employee_number");
+            String lastName = resultSet.getString("last_name");
+            String firstName = resultSet.getString("first_name");
+            int officeCode = resultSet.getInt("office_code");
+            int addressId = resultSet.getInt("address_id");
+
+            return new Employee(employeeNumber, lastName, firstName, officeCode, addressId);
+        }
         return null;
     }
     public int updateAddress(EmployeeAddress employeeAddress, int employeeNumber) throws SQLException {
