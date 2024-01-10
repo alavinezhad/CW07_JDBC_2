@@ -8,6 +8,10 @@ import java.util.Scanner;
 public class Menu {
     private final EmployeeService employeeService = new EmployeeService();
     private final Scanner scanner = new Scanner(System.in);
+
+    public Menu() throws SQLException {
+    }
+
     public void menu() throws SQLException {
         System.out.println("**********************************************");
         System.out.println("1- add employee information");
