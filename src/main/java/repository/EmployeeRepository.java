@@ -82,16 +82,15 @@ public class EmployeeRepository {
         }
         return null;
     }
-    public int updateAddress(EmployeeAddress employeeAddress, int employeeNumber) throws SQLException {
+    public int updateAddress(EmployeeAddress employeeAddress) throws SQLException {
         String changeAddress = "UPDATE employee_address A\n" +
                 "SET city = ?, street = ?, postal_code = ?\n" +
-                "FROM employees E\n" +
-                "WHERE E.employee_number = ?;";
+                "WHERE address_id = ?;";
         PreparedStatement ps = connection.prepareStatement(changeAddress);
         ps.setString(1, employeeAddress.getCity());
         ps.setString(2, employeeAddress.getStreet());
         ps.setInt(3, employeeAddress.getPostalCode());
-        ps.setInt(4, employeeNumber);
+        ps.setInt(4, employeeAddress.getAddressId());
 
         int result = ps.executeUpdate();
         return result;
