@@ -13,10 +13,15 @@ public class Main {
             System.out.println("employee is added with Employee Number: " + employeeNumber);
 */
 
+        employeeService.editOfficeCode(2);
+        employeeService.editAddress(2);
+
+/*
         EmployeeAddress employeeAddress = employeeService.findAddress(3);
         if (employeeAddress == null)
             System.out.println("address not found.");
         else
             System.out.println(employeeAddress);
+*/
     }
 }
