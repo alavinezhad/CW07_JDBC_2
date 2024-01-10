@@ -13,8 +13,10 @@ public class Main {
             System.out.println("employee is added with Employee Number: " + employeeNumber);
 */
 
+/*
         employeeService.editOfficeCode(2);
         employeeService.editAddress(2);
+*/
 
 /*
         EmployeeAddress employeeAddress = employeeService.findAddress(3);
@@ -23,5 +25,6 @@ public class Main {
         else
             System.out.println(employeeAddress);
 */
+        employeeService.deleteEmployee(2);
     }
 }
