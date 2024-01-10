@@ -56,4 +56,17 @@ public class EmployeeService {
         else
             System.out.println("new office code is not applied.");
     }
+    public void editAddress(int employeeNumber) throws SQLException {
+        System.out.println("***** edit address *****");
+        System.out.println("Enter new Address");
+        System.out.println("City:");
+        String city = scanner.nextLine();
+        System.out.println("Street:");
+        String street = scanner.nextLine();
+        System.out.println("Postal code:");
+        int postalCode = scanner.nextInt();
+        employeeRepository.updateAddress(new EmployeeAddress(city, street, postalCode), employeeNumber);
+
+    }
+
 }
