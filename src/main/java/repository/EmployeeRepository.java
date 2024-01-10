@@ -102,5 +102,13 @@ public class EmployeeRepository {
         int result = ps.executeUpdate();
         return result;
     }
+    public int delete(int employeeId) throws SQLException {
+        String deleteEmployee = "DELETE FROM employees WHERE employee_number = ?;";
+        PreparedStatement ps = connection.prepareStatement(deleteEmployee);
+        ps.setInt(1, employeeId);
+
+        return ps.executeUpdate();
+    }
+
 
 }
