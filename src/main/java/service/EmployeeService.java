@@ -76,5 +76,19 @@ public class EmployeeService {
         else
             System.out.println("new address is not applied.");
     }
+    public void deleteEmployee(int employeeId) throws SQLException {
+        Employee employee = employeeRepository.findEmployeeById(employeeId);
+        int addressId = employee.getAddressId();
+        int deleteEmployeeResult = employeeRepository.delete(employeeId);
+        if (deleteEmployeeResult == 1)
+            System.out.println("Employee with id: " + employeeId + " is removed.");
+        else
+            System.out.println("not success.");
+        int deleteAddressResult = employeeRepository.deleteAddress(addressId);
+        if (deleteEmployeeResult == 1)
+            System.out.println("The address of employee with id: " + employeeId + " is deleted.");
+        else
+            System.out.println("deleting the address is not successful.");
+    }
 
 }
