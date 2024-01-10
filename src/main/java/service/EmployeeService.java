@@ -44,7 +44,7 @@ public class EmployeeService {
     public void editOfficeCode(int employeeNumber) throws SQLException {
         System.out.println("***** edit employee office code *****");
         Employee employee = employeeRepository.findEmployeeById(employeeNumber);
-        System.out.println(employeeNumber);
+        System.out.println(employee);
         System.out.println("New office code:");
         int newOfficeCode = scanner.nextInt();
         scanner.nextLine();
@@ -58,7 +58,10 @@ public class EmployeeService {
     }
     public void editAddress(int employeeNumber) throws SQLException {
         EmployeeAddress currentAddress = employeeRepository.loadAddress(employeeNumber);
+        Employee employee = employeeRepository.findEmployeeById(employeeNumber);
         System.out.println("***** edit address *****");
+        System.out.println(employee);
+        System.out.println("Current Address:" + currentAddress);
         System.out.println("Enter new Address");
         System.out.println("City:");
         String city = scanner.nextLine();
