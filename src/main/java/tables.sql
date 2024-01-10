@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS public.employees
+CREATE TABLE IF NOT EXISTS public.employee
 (
     employee_number SERIAL NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS public.employee_address
     PRIMARY KEY (address_id)
     );
 
-ALTER TABLE IF EXISTS public."Employee"
+ALTER TABLE IF EXISTS public.Employee
     ADD FOREIGN KEY (address_id)
         REFERENCES public.employee_address (address_id) MATCH SIMPLE
         ON UPDATE NO ACTION
