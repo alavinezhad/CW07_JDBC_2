@@ -41,8 +41,19 @@ public class EmployeeService {
     public EmployeeAddress findAddress(int employeeNumber) throws SQLException {
         return employeeRepository.loadAddress(employeeNumber);
     }
-    public void editEmployee(int employeeNumber) {
-        System.out.println("***** edit employee office code and address *****");
-
+    public void editOfficeCode(int employeeNumber) throws SQLException {
+        System.out.println("***** edit employee office code *****");
+        Employee employee = employeeRepository.findEmployeeById(employeeNumber);
+        System.out.println(employeeNumber);
+        System.out.println("New office code:");
+        int newOfficeCode = scanner.nextInt();
+        scanner.nextLine();
+        int result = employeeRepository.updateOfficeCode(newOfficeCode);
+        if (result == 1) {
+            System.out.println("office code is updated.");
+            System.out.println(employeeRepository.findEmployeeById(employeeNumber));
+        }
+        else
+            System.out.println("new office code is not applied.");
     }
 }
