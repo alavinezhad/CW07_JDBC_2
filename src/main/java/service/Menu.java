@@ -14,7 +14,7 @@ public class Menu {
 
     public void menu() throws SQLException {
         System.out.println("**********************************************");
-        System.out.println("1- add employee information");
+        System.out.println("1- add employee");
         System.out.println("2- enter employee number to get address");
         System.out.println("3- edit employee office code and address");
         System.out.println("4- enter empolyee number to delete an employee");
@@ -49,7 +49,7 @@ public class Menu {
         }
     }
     private int getEmployeeNumber() {
-        System.out.println("Enter employee number to edit information");
+        System.out.println("Enter employee number:");
         int employeeNumber = scanner.nextInt();
         scanner.nextLine();
         return employeeNumber;
