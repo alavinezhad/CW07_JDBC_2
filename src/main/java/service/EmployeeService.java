@@ -65,8 +65,12 @@ public class EmployeeService {
         String street = scanner.nextLine();
         System.out.println("Postal code:");
         int postalCode = scanner.nextInt();
-        employeeRepository.updateAddress(new EmployeeAddress(city, street, postalCode), employeeNumber);
-
+        int result = employeeRepository.updateAddress(
+                new EmployeeAddress(city, street, postalCode), employeeNumber);
+        if (result == 1)
+            System.out.println("address is changed.");
+        else
+            System.out.println("new address is not applied.");
     }
 
 }
